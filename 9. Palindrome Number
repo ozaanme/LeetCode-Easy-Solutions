@@ -1,0 +1,18 @@
+#### I believed that is not a great solution for this problem because of if statement in length. However, it is still reliable one.
+
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        num1_string = str(x) ### For converting integer to string since I want to compare each digit of integer.
+        length = len(num1_string)
+        if length == 1: #### This statement checks that integer has one digit, if it does, returns 1 immidaetly.
+            return True
+        for i in range(length//2):
+            if num1_string[i] != num1_string[length-i-1]: #### Checking that number is symmetric, if it is not return 0 directly.
+                return False
+                break
+            elif i == length//2-1: #### Verify that we checked all digits in first half has symmetric and we reached middle point without break. Therefore, return 1.
+                return True
